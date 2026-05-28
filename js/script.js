@@ -41,12 +41,14 @@ function initMenuHero(tabId) {
   setHeroContent(tabId, items[0], false);
 
   items.forEach(item => {
-    item.addEventListener('mouseenter', () => {
+    const activate = () => {
       if (item.classList.contains('is-active')) return;
       items.forEach(i => i.classList.remove('is-active'));
       item.classList.add('is-active');
       setHeroContent(tabId, item, true);
-    });
+    };
+    item.addEventListener('mouseenter', activate);
+    item.addEventListener('click', activate);
   });
 }
 
@@ -106,11 +108,6 @@ let lastScrollY = window.scrollY;
 window.addEventListener('scroll', () => {
   const currentY = window.scrollY;
   nav.classList.toggle('nav--scrolled', currentY > 60);
-  if (currentY > lastScrollY && currentY > 120) {
-    nav.classList.add('nav--hidden');
-  } else {
-    nav.classList.remove('nav--hidden');
-  }
   lastScrollY = currentY;
 });
 
@@ -157,4 +154,160 @@ document.querySelector('.nl-btn').addEventListener('click', () => {
     input.placeholder = '¡Gracias por suscribirte! ☕';
     input.style.color = '#c8813a';
   }
+});
+
+// ─── #2 PARALLAX ───
+(function () {
+  const heroImg  = document.querySelector('.hero-img-container');
+  const expBoxes = document.querySelectorAll('.exp-img-box');
+  const vH = () => window.innerHeight;
+
+  function updateParallax() {
+    if (window.innerWidth <= 900) return;
+    if (heroImg) {
+      const rect = heroImg.closest('#hero').getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < vH()) {
+        const progress = -rect.top / vH();
+        heroImg.style.backgroundPositionY = `calc(50% + ${progress * 45}px)`;
+      }
+    }
+    expBoxes.forEach(box => {
+      const rect = box.getBoundingClientRect();
+      if (rect.bottom > 0 && rect.top < vH()) {
+        const progress = (vH() - rect.top) / (vH() + rect.height);
+        const offset   = (progress - 0.5) * 55;
+        box.style.backgroundPositionY = `calc(50% + ${offset}px)`;
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateParallax, { passive: true });
+  updateParallax();
+})();
+
+// ─── #9 ZOOM EN IMAGEN DEL MENÚ AL HOVER ───
+(function () {
+  ['cafes', 'panaderia', 'desayunos', 'tortas'].forEach(tabId => {
+    const list    = document.getElementById('list-' + tabId);
+    const hero    = document.getElementById('hero-' + tabId);
+    if (!list || !hero) return;
+    const heroImg = hero.querySelector('.menu-hero-img');
+    if (!heroImg) return;
+
+    list.querySelectorAll('.menu-list-item').forEach(item => {
+      item.addEventListener('mouseenter', () => heroImg.classList.add('is-zoomed'));
+    });
+    list.addEventListener('mouseleave', () => heroImg.classList.remove('is-zoomed'));
+  });
+})();
+
+// ─── #10 LIGHTBOX ───
+(function () {
+  const lightbox  = document.getElementById('lightbox');
+  const lbImg     = document.getElementById('lightboxImg');
+  const lbCaption = document.getElementById('lightboxCaption');
+  const lbClose   = document.getElementById('lightboxClose');
+  const lbPrev    = document.getElementById('lightboxPrev');
+  const lbNext    = document.getElementById('lightboxNext');
+  if (!lightbox) return;
+
+  const images = [];
+  let current  = 0;
+
+  document.querySelectorAll('.exp-img-box[data-src]').forEach((box, i) => {
+    images.push({ src: box.dataset.src, caption: box.dataset.caption || '' });
+    box.addEventListener('click', () => openLightbox(i));
+  });
+
+  function openLightbox(index) {
+    current = index;
+    lbImg.style.transition = 'none';
+    lbImg.style.opacity    = '0';
+    lbImg.style.transform  = 'scale(0.95)';
+    lbImg.src              = images[index].src;
+    lbImg.alt              = images[index].caption;
+    lbCaption.textContent  = images[index].caption;
+    lightbox.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+
+    requestAnimationFrame(() => requestAnimationFrame(() => {
+      lbImg.style.transition = 'opacity 0.38s ease, transform 0.38s ease';
+      lbImg.style.opacity    = '1';
+      lbImg.style.transform  = 'scale(1)';
+    }));
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  function navigate(dir) {
+    current = (current + dir + images.length) % images.length;
+    lbImg.style.transition = 'opacity 0.18s ease';
+    lbImg.style.opacity    = '0';
+    setTimeout(() => {
+      lbImg.src             = images[current].src;
+      lbImg.alt             = images[current].caption;
+      lbCaption.textContent = images[current].caption;
+      lbImg.style.opacity   = '1';
+    }, 200);
+  }
+
+  lbClose.addEventListener('click', closeLightbox);
+  lbPrev.addEventListener('click',  () => navigate(-1));
+  lbNext.addEventListener('click',  () => navigate(1));
+  lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+  document.addEventListener('keydown', e => {
+    if (!lightbox.classList.contains('is-open')) return;
+    if (e.key === 'Escape')      closeLightbox();
+    if (e.key === 'ArrowLeft')   navigate(-1);
+    if (e.key === 'ArrowRight')  navigate(1);
+  });
+})();
+
+// ─── #12 INDICADOR ABIERTO / CERRADO ───
+(function () {
+  const schedule = [
+    { open: 9*60,     close: 18*60, closeStr: '18:00' }, // Dom
+    { open: 7*60+30,  close: 20*60, closeStr: '20:00' }, // Lun
+    { open: 7*60+30,  close: 20*60, closeStr: '20:00' }, // Mar
+    { open: 7*60+30,  close: 20*60, closeStr: '20:00' }, // Mié
+    { open: 7*60+30,  close: 20*60, closeStr: '20:00' }, // Jue
+    { open: 7*60+30,  close: 20*60, closeStr: '20:00' }, // Vie
+    { open: 8*60,     close: 21*60, closeStr: '21:00' }, // Sáb
+  ];
+
+  const now   = new Date();
+  const today = schedule[now.getDay()];
+  const mins  = now.getHours() * 60 + now.getMinutes();
+  const isOpen = mins >= today.open && mins < today.close;
+  const minsLeft = today.close - mins;
+
+  const badge = document.createElement('div');
+  badge.className = 'open-status-badge ' + (isOpen ? 'is-open' : 'is-closed');
+
+  let text = isOpen
+    ? (minsLeft <= 60
+        ? `<span class="status-dot"></span> Abierto · Cerramos en ${minsLeft} min`
+        : `<span class="status-dot"></span> Abierto ahora · Cerramos a las ${today.closeStr}`)
+    : `<span class="status-dot"></span> Cerrado ahora`;
+
+  badge.innerHTML = text;
+
+  const hoursTable = document.querySelector('.contact-info .hours-table');
+  if (hoursTable) hoursTable.parentNode.insertBefore(badge, hoursTable);
+})();
+
+// ─── #16 RIPPLE EN BOTONES ───
+document.querySelectorAll('.nl-btn, .btn-primary').forEach(btn => {
+  btn.addEventListener('click', function (e) {
+    const rect   = this.getBoundingClientRect();
+    const ripple = document.createElement('span');
+    ripple.className    = 'ripple';
+    ripple.style.left   = (e.clientX - rect.left  - 5) + 'px';
+    ripple.style.top    = (e.clientY - rect.top   - 5) + 'px';
+    this.appendChild(ripple);
+    setTimeout(() => ripple.remove(), 650);
+  });
 });
