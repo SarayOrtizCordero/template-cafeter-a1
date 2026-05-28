@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>La Brasa — Cafetería &amp; Panadería</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <nav>
+    <a href="#" class="nav-logo">La <span>Brasa</span></a>
+    <ul class="nav-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#contacto">Visítanos</a></li>
+      <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+    </ul>
+    <button type="button" class="nav-hamburger" aria-label="Abrir menú" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </nav>
+  <div class="nav-mobile" aria-hidden="true">
+    <ul class="nav-mobile-links">
+      <li><a href="#nosotros">Nosotros</a></li>
+      <li><a href="#menu">Menú</a></li>
+      <li><a href="#experiencia">Experiencia</a></li>
+      <li><a href="#contacto">Visítanos</a></li>
+      <li><a href="#contacto" class="nav-mobile-cta">Reservar</a></li>
+    </ul>
+  </div>
+
+  <!-- ─── HERO ─── -->
+  <section id="hero">
+    <div class="hero-left">
+      <div class="hero-tag">Cafetería &amp; Panadería Artesanal</div>
+      <h1 class="hero-title">
+        Café<br />con<br /><em>alma</em>
+      </h1>
+      <p class="hero-desc">
+        Desde el corazón de Buenos Aires, cada taza es un ritual. Granos seleccionados, tostado propio y el calor de siempre.
+      </p>
+      <div class="hero-actions">
+        <a href="#menu" class="btn-primary">Ver el menú</a>
+        <a href="#nosotros" class="btn-ghost">Conocernos &rarr;</a>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-img-container">
+        <div class="hero-img-overlay"></div>
+        <div class="hero-year">Est. 2008 · Buenos Aires</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MARQUEE ─── -->
+  <div class="marquee-strip">
+    <div class="marquee-inner" id="marqueeInner">
+      <span>Café de especialidad</span>
+      <span>Pan artesanal</span>
+      <span>Medialunas al horno</span>
+      <span>Tostado propio</span>
+      <span>Tortas caseras</span>
+      <span>Desayunos especiales</span>
+      <span>Café de especialidad</span>
+      <span>Pan artesanal</span>
+      <span>Medialunas al horno</span>
+      <span>Tostado propio</span>
+      <span>Tortas caseras</span>
+      <span>Desayunos especiales</span>
+    </div>
+  </div>
+
+  <!-- ─── NOSOTROS ─── -->
+  <section id="nosotros">
+    <div class="reveal">
+      <div class="about-label">Nuestra historia</div>
+      <h2 class="about-title">Más que<br /><em>un café,</em><br />un refugio</h2>
+      <p class="about-text">
+        La Brasa nació en 2008 en el barrio de Palermo, de las manos de la familia Montoya. Lo que empezó como una pequeña esquina con olor a medialunas recién horneadas hoy es un punto de encuentro donde el tiempo pasa más despacio.
+      </p>
+      <p class="about-text">
+        Trabajamos con productores locales, tostamos nuestros propios granos y cada receta lleva el sello de quienes amamos profundamente lo que hacemos.
+      </p>
+    </div>
+    <div class="about-visual reveal" style="transition-delay: 0.2s;">
+      <div class="about-photo-main"></div>
+      <div class="about-photo-accent">
+        <div class="accent-inner">
+          <div class="accent-year">2008</div>
+          <div class="accent-since">Desde siempre</div>
+        </div>
+      </div>
+      <div class="coffee-decoration">
+        <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 22h28v14a7 7 0 01-7 7H17a7 7 0 01-7-7V22z" stroke="#BDA487" stroke-width="1.5"/>
+          <path d="M38 24h3.5a5.5 5.5 0 010 11H38" stroke="#BDA487" stroke-width="1.5"/>
+          <path d="M17 14c0-4 4-5 4-10M27 14c0-4 4-5 4-10" stroke="#BDA487" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── MENÚ ─── -->
+  <section id="menu">
+    <div class="menu-header reveal">
+      <div>
+        <div class="menu-label">Lo que ofrecemos</div>
+        <h2 class="menu-title">Nuestra<br /><em>carta</em></h2>
+      </div>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="tab-btn active" onclick="switchTab('cafes', this)">Cafés</button>
+      <button class="tab-btn" onclick="switchTab('panaderia', this)">Panadería</button>
+      <button class="tab-btn" onclick="switchTab('desayunos', this)">Desayunos</button>
+      <button class="tab-btn" onclick="switchTab('tortas', this)">Tortas</button>
+    </div>
+
+    <!-- TAB: CAFÉS -->
+    <div class="tab-panel active" id="tab-cafes">
+      <div class="menu-split">
+        <div class="menu-hero" id="hero-cafes">
+          <div class="menu-hero-img"></div>
+          <div class="menu-hero-overlay">
+            <div class="menu-hero-tag"></div>
+            <div class="menu-hero-name"></div>
+            <div class="menu-hero-desc"></div>
+            <div class="menu-hero-price"></div>
+          </div>
+        </div>
+        <div class="menu-list" id="list-cafes">
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a?auto=format&fit=crop&w=1200&q=85"
+               data-name="Espresso Doble"
+               data-desc="Nuestro blend exclusivo, tostado en casa. Intenso, con notas de chocolate amargo y frutos secos."
+               data-price="$2.200" data-tag="Signature">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Espresso Doble</div>
+              <div class="menu-list-item-desc">Blend exclusivo tostado en casa</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$2.200</div>
+              <div class="menu-list-item-tag">Signature</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1561882468-9110d70c5b3f?auto=format&fit=crop&w=1200&q=85"
+               data-name="Flat White"
+               data-desc="Doble espresso con leche vaporizada en textura aterciopelada. Cremoso y equilibrado."
+               data-price="$2.900" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Flat White</div>
+              <div class="menu-list-item-desc">Doble espresso con leche vaporizada</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$2.900</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=1200&q=85"
+               data-name="Cold Brew"
+               data-desc="Infusión en frío por 18 horas. Suave, dulce naturalmente y sin acidez. Con o sin leche."
+               data-price="$3.100" data-tag="Temporada">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Cold Brew</div>
+              <div class="menu-list-item-desc">Infusión en frío por 18 horas</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$3.100</div>
+              <div class="menu-list-item-tag">Temporada</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1536256263959-770b48d82b0a?auto=format&fit=crop&w=1200&q=85"
+               data-name="Matcha Latte"
+               data-desc="Matcha ceremonial japonés con leche de avena artesanal. Vegano y reconfortante."
+               data-price="$3.400" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Matcha Latte</div>
+              <div class="menu-list-item-desc">Matcha ceremonial con leche de avena</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$3.400</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1485808191679-5f86510bd9a7?auto=format&fit=crop&w=1200&q=85"
+               data-name="Cortado con Cacao"
+               data-desc="Espresso con leche y un toque de cacao 70% de origen único. El favorito de la casa."
+               data-price="$3.200" data-tag="Favorito">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Cortado con Cacao</div>
+              <div class="menu-list-item-desc">Espresso con leche y cacao 70%</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$3.200</div>
+              <div class="menu-list-item-tag">Favorito</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1200&q=85"
+               data-name="Café de Filtro"
+               data-desc="Pour-over con granos de origen único. Preparación lenta, sabor profundo y cristalino."
+               data-price="$2.600" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Café de Filtro</div>
+              <div class="menu-list-item-desc">Pour-over de origen único, preparación lenta</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$2.600</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: PANADERÍA -->
+    <div class="tab-panel" id="tab-panaderia">
+      <div class="menu-split">
+        <div class="menu-hero" id="hero-panaderia">
+          <div class="menu-hero-img"></div>
+          <div class="menu-hero-overlay">
+            <div class="menu-hero-tag"></div>
+            <div class="menu-hero-name"></div>
+            <div class="menu-hero-desc"></div>
+            <div class="menu-hero-price"></div>
+          </div>
+        </div>
+        <div class="menu-list" id="list-panaderia">
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=1200&q=85"
+               data-name="Medialuna de Manteca"
+               data-desc="Hojaldradas, doradas y con manteca real. Las más pedidas del barrio cada mañana."
+               data-price="$1.400" data-tag="Clásico">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Medialuna de Manteca</div>
+              <div class="menu-list-item-desc">Hojaldradas y doradas, las más pedidas</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$1.400</div>
+              <div class="menu-list-item-tag">Clásico</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1200&q=85"
+               data-name="Pan de Masa Madre"
+               data-desc="Fermentación lenta de 24 horas. Corteza crujiente, miga abierta. Horneado cada mañana."
+               data-price="$3.800" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Pan de Masa Madre</div>
+              <div class="menu-list-item-desc">Fermentación 24 hs, horneado cada mañana</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$3.800</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?auto=format&fit=crop&w=1200&q=85"
+               data-name="Scone de Queso y Ciboulette"
+               data-desc="Receta propia con queso cremoso y hierbas frescas. Horneado al momento."
+               data-price="$2.100" data-tag="Artesanal">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Scone de Queso y Ciboulette</div>
+              <div class="menu-list-item-desc">Queso cremoso y hierbas frescas</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$2.100</div>
+              <div class="menu-list-item-tag">Artesanal</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1486427944299-d1955d23e34d?auto=format&fit=crop&w=1200&q=85"
+               data-name="Factura Surtida"
+               data-desc="Selección de la pastelería del día: vigilantes, palmeritas, cañoncitos y más."
+               data-price="$2.500" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Factura Surtida</div>
+              <div class="menu-list-item-desc">Vigilantes, palmeritas, cañoncitos y más</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$2.500</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1549931319-a545dcf3bc73?auto=format&fit=crop&w=1200&q=85"
+               data-name="Brioche con Dulce de Leche"
+               data-desc="Pan brioche esponjoso relleno con dulce de leche repostero casero."
+               data-price="$1.800" data-tag="Imperdible">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Brioche con Dulce de Leche</div>
+              <div class="menu-list-item-desc">Brioche esponjoso con DDL repostero casero</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$1.800</div>
+              <div class="menu-list-item-tag">Imperdible</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1590137876181-2a5a7e340de2?auto=format&fit=crop&w=1200&q=85"
+               data-name="Pan de Centeno"
+               data-desc="100% centeno con semillas. Denso, nutritivo y con carácter propio."
+               data-price="$4.200" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Pan de Centeno</div>
+              <div class="menu-list-item-desc">100% centeno con semillas, denso y nutritivo</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$4.200</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: DESAYUNOS -->
+    <div class="tab-panel" id="tab-desayunos">
+      <div class="menu-split">
+        <div class="menu-hero" id="hero-desayunos">
+          <div class="menu-hero-img"></div>
+          <div class="menu-hero-overlay">
+            <div class="menu-hero-tag"></div>
+            <div class="menu-hero-name"></div>
+            <div class="menu-hero-desc"></div>
+            <div class="menu-hero-price"></div>
+          </div>
+        </div>
+        <div class="menu-list" id="list-desayunos">
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1533920379810-6bedac961555?auto=format&fit=crop&w=1200&q=85"
+               data-name="Desayuno La Brasa"
+               data-desc="Café o té + tostadas de masa madre + huevos revueltos + jugo exprimido. Completo y delicioso."
+               data-price="$7.500" data-tag="Completo">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Desayuno La Brasa</div>
+              <div class="menu-list-item-desc">Café + tostadas + huevos + jugo exprimido</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$7.500</div>
+              <div class="menu-list-item-tag">Completo</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1484723091739-30990be98e12?auto=format&fit=crop&w=1200&q=85"
+               data-name="Avo Toast"
+               data-desc="Pan de masa madre con palta cremosa, huevo poché, tomates cherry y semillas de chía."
+               data-price="$5.800" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Avo Toast</div>
+              <div class="menu-list-item-desc">Masa madre, palta, huevo poché y chía</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$5.800</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1495214783159-3503fd1b572d?auto=format&fit=crop&w=1200&q=85"
+               data-name="Bowl de Granola"
+               data-desc="Granola casera, yogur griego, frutas de estación, miel de abeja local y semillas."
+               data-price="$4.900" data-tag="Vegano">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Bowl de Granola</div>
+              <div class="menu-list-item-desc">Granola casera, yogur griego y frutas</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$4.900</div>
+              <div class="menu-list-item-tag">Vegano</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TAB: TORTAS -->
+    <div class="tab-panel" id="tab-tortas">
+      <div class="menu-split">
+        <div class="menu-hero" id="hero-tortas">
+          <div class="menu-hero-img"></div>
+          <div class="menu-hero-overlay">
+            <div class="menu-hero-tag"></div>
+            <div class="menu-hero-name"></div>
+            <div class="menu-hero-desc"></div>
+            <div class="menu-hero-price"></div>
+          </div>
+        </div>
+        <div class="menu-list" id="list-tortas">
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1621303837174-89787a7d4729?auto=format&fit=crop&w=1200&q=85"
+               data-name="Torta de Zanahoria"
+               data-desc="Esponjosa con frosting de queso crema. Receta de la abuela Cristina."
+               data-price="$4.200" data-tag="Clásico">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Torta de Zanahoria</div>
+              <div class="menu-list-item-desc">Con frosting de queso crema, receta familiar</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$4.200</div>
+              <div class="menu-list-item-tag">Clásico</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=85"
+               data-name="Lemon Pie"
+               data-desc="Curd de limón sobre masa sablée, cubierto con merengue italiano tostado."
+               data-price="$3.800" data-tag="">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Lemon Pie</div>
+              <div class="menu-list-item-desc">Curd de limón y merengue italiano tostado</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$3.800</div>
+            </div>
+          </div>
+          <div class="menu-list-item"
+               data-img="https://images.unsplash.com/photo-1606313564200-e75d5e30476c?auto=format&fit=crop&w=1200&q=85"
+               data-name="Brownie con Dulce de Leche"
+               data-desc="Húmedo y denso, con nueces tostadas y un corazón de dulce de leche repostero."
+               data-price="$4.600" data-tag="Favorito">
+            <div class="menu-list-item-info">
+              <div class="menu-list-item-name">Brownie con Dulce de Leche</div>
+              <div class="menu-list-item-desc">Húmedo, con nueces y corazón de DDL</div>
+            </div>
+            <div class="menu-list-item-right">
+              <div class="menu-list-item-price">$4.600</div>
+              <div class="menu-list-item-tag">Favorito</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXPERIENCIA ─── -->
+  <section id="experiencia">
+    <div class="exp-visual reveal">
+      <div class="exp-img-grid">
+        <div class="exp-img-box exp-img-1">
+          <div class="exp-img-overlay-text">Interior cálido</div>
+        </div>
+        <div class="exp-img-box exp-img-2">
+          <div class="exp-img-overlay-text">Terraza</div>
+        </div>
+        <div class="exp-img-box exp-img-3">
+          <div class="exp-img-overlay-text">Sala privada</div>
+        </div>
+      </div>
+    </div>
+    <div class="exp-content reveal" style="transition-delay:0.15s;">
+      <div class="exp-label">El espacio</div>
+      <h2 class="exp-title">Un lugar para<br /><em>quedarse</em></h2>
+      <p class="exp-text">
+        Tres ambientes cuidadosamente diseñados para que cada visita sea diferente: desde el bullicio cálido del salón principal hasta la quietud de nuestra terraza con plantas.
+      </p>
+      <ul class="exp-list">
+        <li>Salón principal con 30 cubiertos y luz natural todo el día</li>
+        <li>Terraza al aire libre con plantas y sombra natural</li>
+        <li>Sala privada para eventos y desayunos de trabajo</li>
+        <li>WiFi de alta velocidad y enchufes en cada mesa</li>
+        <li>Espacio pet-friendly en terraza</li>
+        <li>Música en vivo los viernes por la noche</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── CONTACTO ─── -->
+  <section id="contacto">
+    <div class="contact-map reveal">
+      <iframe
+        src="https://maps.google.com/maps?q=Honduras+4782,+Palermo,+Buenos+Aires,+Argentina&z=16&output=embed"
+        title="Ubicación de La Brasa"
+        allowfullscreen
+        loading="lazy"
+>
+      </iframe>
+      <a href="https://www.google.com/maps/search/?api=1&query=Honduras+4782,+Palermo,+Buenos+Aires,+Argentina"
+         target="_blank" rel="noopener" class="map-directions-btn">
+        Cómo llegar →
+      </a>
+    </div>
+    <div class="contact-info reveal" style="transition-delay:0.15s;">
+      <div class="contact-label">Dónde encontrarnos</div>
+      <h2 class="contact-title">Venite a<br /><em>visitarnos</em></h2>
+      <table class="hours-table">
+        <tr>
+          <td class="day-name">Lunes — Viernes</td>
+          <td class="day-open">7:30 — 20:00</td>
+        </tr>
+        <tr>
+          <td class="day-name">Sábados</td>
+          <td class="day-open">8:00 — 21:00</td>
+        </tr>
+        <tr>
+          <td class="day-name">Domingos</td>
+          <td class="day-open">9:00 — 18:00</td>
+        </tr>
+        <tr>
+          <td class="day-name">Feriados</td>
+          <td>Horario reducido</td>
+        </tr>
+      </table>
+      <div class="contact-details">
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg class="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+              <circle cx="12" cy="9" r="2.5"/>
+            </svg>
+          </div>
+          <span>Honduras 4782, Palermo, CABA</span>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg class="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C7.6 21 3 16.4 3 11c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/>
+            </svg>
+          </div>
+          <a href="tel:+541145554321">+54 11 4555-4321</a>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg class="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="M2 7l10 7 10-7"/>
+            </svg>
+          </div>
+          <a href="mailto:hola@labrasa.com.ar">hola@labrasa.com.ar</a>
+        </div>
+        <div class="contact-row">
+          <div class="contact-icon">
+            <svg class="contact-svg-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <a href="#">@labrasa.cafe</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── NEWSLETTER ─── -->
+  <section id="newsletter">
+    <div class="nl-label reveal">Novedades</div>
+    <h2 class="nl-title reveal">Suscribite y enterate<br />de lo <em>nuevo</em> primero</h2>
+    <p class="nl-sub reveal">Menú de temporada, eventos y promociones especiales para suscriptores.</p>
+    <div class="nl-form reveal">
+      <input type="email" class="nl-input" placeholder="tu@email.com" />
+      <button class="nl-btn">Suscribirme</button>
+    </div>
+  </section>
+
+  <!-- ─── FOOTER ─── -->
+  <footer>
+    <div class="footer-brand">
+      <span class="footer-logo">La <span>Brasa</span></span>
+      <p>Cafetería y panadería artesanal en el corazón de Palermo desde 2008. Café, pan y buenos momentos.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="2" y="2" width="20" height="20" rx="5"/>
+            <circle cx="12" cy="12" r="4"/>
+            <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="Twitter / X">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+        <a href="#" class="social-btn" aria-label="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/>
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.978-1.417A9.953 9.953 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2zm0 18a7.946 7.946 0 01-4.076-1.117l-.29-.173-3.007.856.844-3.116-.19-.302A7.944 7.944 0 014 12c0-4.411 3.589-8 8-8s8 3.589 8 8-3.589 8-8 8z"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Menú</h4>
+      <ul>
+        <li><a href="#">Cafés de especialidad</a></li>
+        <li><a href="#">Panadería</a></li>
+        <li><a href="#">Desayunos</a></li>
+        <li><a href="#">Tortas y pasteles</a></li>
+        <li><a href="#">Carta completa</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>El local</h4>
+      <ul>
+        <li><a href="#">Nuestra historia</a></li>
+        <li><a href="#">El equipo</a></li>
+        <li><a href="#">Eventos</a></li>
+        <li><a href="#">Prensa</a></li>
+        <li><a href="#">Trabaja con nosotros</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#">Honduras 4782, Palermo</a></li>
+        <li><a href="#">+54 11 4555-4321</a></li>
+        <li><a href="#">hola@labrasa.com.ar</a></li>
+        <li><a href="#">Reservas</a></li>
+        <li><a href="#">Preguntas frecuentes</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 La Brasa Cafetería. Todos los derechos reservados.</p>
+      <p>Diseñado con &#9829; en Buenos Aires</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
