@@ -56,24 +56,6 @@
     </div>
   </section>
 
-  <!-- ─── MARQUEE ─── -->
-  <div class="marquee-strip">
-    <div class="marquee-inner" id="marqueeInner">
-      <span>Café de especialidad</span>
-      <span>Pan artesanal</span>
-      <span>Medialunas al horno</span>
-      <span>Tostado propio</span>
-      <span>Tortas caseras</span>
-      <span>Desayunos especiales</span>
-      <span>Café de especialidad</span>
-      <span>Pan artesanal</span>
-      <span>Medialunas al horno</span>
-      <span>Tostado propio</span>
-      <span>Tortas caseras</span>
-      <span>Desayunos especiales</span>
-    </div>
-  </div>
-
   <!-- ─── NOSOTROS ─── -->
   <section id="nosotros">
     <div class="reveal">
@@ -88,12 +70,7 @@
     </div>
     <div class="about-visual reveal" style="transition-delay: 0.2s;">
       <div class="about-photo-main"></div>
-      <div class="about-photo-accent">
-        <div class="accent-inner">
-          <div class="accent-year">2008</div>
-          <div class="accent-since">Desde siempre</div>
-        </div>
-      </div>
+      <div class="about-photo-accent"></div>
       <div class="coffee-decoration">
         <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path d="M10 22h28v14a7 7 0 01-7 7H17a7 7 0 01-7-7V22z" stroke="#BDA487" stroke-width="1.5"/>
@@ -437,13 +414,19 @@
   <section id="experiencia">
     <div class="exp-visual reveal">
       <div class="exp-img-grid">
-        <div class="exp-img-box exp-img-1">
+        <div class="exp-img-box exp-img-1"
+             data-src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&w=1800&q=90"
+             data-caption="Interior cálido">
           <div class="exp-img-overlay-text">Interior cálido</div>
         </div>
-        <div class="exp-img-box exp-img-2">
+        <div class="exp-img-box exp-img-2"
+             data-src="https://images.unsplash.com/photo-1559925393-8be0ec4767c8?auto=format&fit=crop&w=1200&q=90"
+             data-caption="Terraza">
           <div class="exp-img-overlay-text">Terraza</div>
         </div>
-        <div class="exp-img-box exp-img-3">
+        <div class="exp-img-box exp-img-3"
+             data-src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?auto=format&fit=crop&w=1200&q=90"
+             data-caption="Sala privada">
           <div class="exp-img-overlay-text">Sala privada</div>
         </div>
       </div>
@@ -614,6 +597,29 @@
       <p>Diseñado con &#9829; en Buenos Aires</p>
     </div>
   </footer>
+
+  <!-- ─── LIGHTBOX ─── -->
+  <div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Galería de espacios">
+    <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Cerrar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round">
+        <path d="M18 6L6 18M6 6l12 12"/>
+      </svg>
+    </button>
+    <button type="button" class="lightbox-prev" id="lightboxPrev" aria-label="Anterior">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M15 18l-6-6 6-6"/>
+      </svg>
+    </button>
+    <div class="lightbox-content">
+      <img class="lightbox-img" id="lightboxImg" src="" alt="" />
+    </div>
+    <button type="button" class="lightbox-next" id="lightboxNext" aria-label="Siguiente">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M9 18l6-6-6-6"/>
+      </svg>
+    </button>
+    <div class="lightbox-caption" id="lightboxCaption"></div>
+  </div>
 
   <script src="js/script.js"></script>
 </body>
